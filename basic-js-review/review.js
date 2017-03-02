@@ -1,23 +1,36 @@
 /////////////Variables/////////////
 //1. Write a variable called color with a value of "dark blue".
 
+var color = "dark blue";
+
 //2. Write a variable, myFave, that has the value "My favorite color is "
+
+var myFave = "My favorite color is";
 
 //3. Use the variables from 1 and 2 to make myFavoriteColor equal
 //   "My favorite color is dark blue" (concatenate)
-var myFavoriteColor;
+var myFavoriteColor = myFave + ' ' + color;
 
 //4. Create an array of strings that includes the letters a - d in order.
-var aThroughD;
+var aThroughD = ['a', 'b', 'c', 'd'];
 //5. Remove 'a' and store it to a variable called isForApple.
 
+var isForApple = aThroughD.shift();
+
 //6. Add 'e' to the end of aThroughD.
+aThroughD.push('e');
 
 //7. Add 'apple' to the beginning of aThroughD
 
+aThroughD.unshift('apple');
+
 //8. Remove 'c' from the array and put 'cat' in its place
 
+aThroughD.splice(2, 1, 'cat');
+
 //9. Leave 'apple' in the array but put a copy of it on a var called bestFruit
+
+var bestFruit = aThroughD[0];
 
 //10. Create an object called spaceJam
 //    spaceJam has: a title of 'Space Jam' (String)
@@ -25,6 +38,12 @@ var aThroughD;
 //                  is not an oscarAwardWinner (Boolean)
 //                  and has the stars Michael Jordan, Bugs Bunny, and Bill Murray (array of strings)
 
+var spaceJam = {
+  title : 'Space Jam',
+  release_year : 1996,
+  oscarAwardWinner : false,
+  stars: ['Michael Jordan', 'Bugs Bunny', 'Bill Murray']
+};
 
 //11. Change anakin's side to dark using bracket notation
 
@@ -36,29 +55,66 @@ var anakinSkywalker =  {
   former_mother: 'Shmi Skywalker'
 }
 
+anakinSkywalker['side'] = 'dark';
+
 //12. Add 'Jar Jar' to his children using dot notation
+
+anakinSkywalker.children.push('Jar Jar');
 
 //13. Loop through the object and remove any property that starts with former
 
-
+for (var key in anakinSkywalker){
+  if(key === 'former_significant_other'){
+    delete anakinSkywalker[key];
+  } else if (key === 'former_mother'){
+    delete anakinSkywalker[key];
+  }
+}
 
 //14. Create a function called finder that takes in an array and a string and loops through the array
 //    to remove every instance of that string
+
+var finder = function (arr, str){
+  for (var i = 0; i < arr.length; i++){
+    if(arr[i] === str){
+      delete arr[i];
+    }
+  }
+};
 
 
 
 //15. Write a function called numChecker that takes in a parameter and checks to see if it is a number or a
   //number in a string (ie '12' or 12) - if so, return true, else return false
 
+function numChecker (param){
+  if(isNaN(param) === false){
+    return true;
+  } else return false;
+}
 
 
 //16. Write a function called rightNow that returns a new date object
+
+function rightNow(){
+  return new Date();
+}
 
 
 
 //17. Write a function called whoAmI that takes in an object and returns the value of the
 //    object's name property, and if the object's name
 //    is undefined, return 'has amnesia'.
+
+function whoAmI (obj){
+  for (var key in obj){
+    if(key === 'name'){
+      if(!obj[key]){
+        return 'has amnesia';
+      } else return obj[key];
+    }
+  } return 'has amnesia';
+}
 
 
 
